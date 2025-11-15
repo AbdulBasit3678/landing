@@ -1,0 +1,1277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Build.Site – Premium Web Agency</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+
+    html {
+  scroll-behavior: smooth;
+}
+
+    :root {
+      --green: #14A800;
+      --radius: 40px;
+      --font: 'Inter', sans-serif;
+    }
+    body.light {
+      --bg: #ffffff;
+      --text: #111111;
+      --section-bg: #f4f4f4;
+      --chat-bg: #e9e9e9;
+    }
+    body.dark {
+      --bg: #121212;
+      --text: #ffffff;
+      --section-bg: #1e1e1e;
+      --chat-bg: #2a2a2a;
+    }
+    body {
+      margin: 0;
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      transition: background 0.3s, color 0.3s;
+    }
+header {
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      background: var(--section-bg);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+      padding: 20px 40px;
+      flex-wrap: wrap;
+}
+.logo {
+      font-weight: 700;
+      font-size: 2rem; /* was 1.5rem before */
+      color: var(--green);
+}
+
+.nav-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+      gap: 30px; /* spacing between nav and toggle */
+      flex-wrap: wrap;
+}
+
+    .hero-btn i {
+  display:inline-block;
+  font-size:1em;
+}
+
+
+nav {
+  display: flex;
+  gap: 30px; /* spacing between Home, Services, Projects, etc. */
+  align-items: center;
+}
+
+
+nav a {
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1rem;
+  position: relative;
+  padding-bottom: 5px;
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0%;
+  height: 2px;
+  background-color: var(--green);
+  transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+  .theme-toggle {
+  cursor: pointer;
+  font-size: 1.3rem;
+  text-align: center;
+}
+
+.theme-label {
+    font-size: 0.7rem;
+  margin-top: 4px;
+    color: var(--text);
+}
+
+/* ===== BURGER MENU & RESPONSIVENESS ===== */
+
+/* Burger button */
+.burger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 24px;
+  height: 18px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.burger span {
+  display: block;
+  height: 3px;
+  background: var(--text);
+  border-radius: 3px;
+  transition: 0.3s;
+}
+
+/* Burger animation when active */
+.burger.active span:nth-child(1) {
+  transform: rotate(45deg) translateY(7px);
+}
+.burger.active span:nth-child(2) {
+  opacity: 0;
+}
+.burger.active span:nth-child(3) {
+  transform: rotate(-45deg) translateY(-7px);
+}
+
+/* Default desktop nav */
+.nav-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 30px;
+}
+
+/* ===== Mobile Styles ===== */
+@media (max-width: 650px) {
+  .burger {
+    display: flex;
+  }
+
+  nav {
+    position: fixed;
+    top: 70px;
+    right: -100%;
+    background: var(--section-bg);
+    width: 220px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 25px;
+    border-radius: 12px 0 0 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+    transition: right 0.3s ease;
+  }
+
+  nav.open {
+    right: 20px;
+  }
+
+  /* Hide original toggle */
+  .theme-toggle {
+    display: none;
+  }
+
+  /* Toggle inside burger */
+  nav .theme-toggle {
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+    border-top: 1px solid var(--text);
+    padding-top: 10px;
+  }
+
+  header {
+    padding: 15px 25px;
+  }
+
+  .nav-wrapper {
+    gap: 10px;
+  }
+}
+
+   section {
+      padding: 60px 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
+    .hero h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .hero-btn {
+  background: transparent;
+  color: #ffffff;
+  border: 2px solid #14A800;
+  padding: 12px 28px;
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 40px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.hero-btn:hover {
+  background: #14A800;
+  color: #000000;
+}
+
+body.light .hero-btn {
+  color: black;
+}
+
+
+    .btn {
+      padding: 12px 30px;
+      background: var(--green);
+      color: black;
+      border: 2px solid var(--green);
+      border-radius: var(--radius);
+      cursor: pointer;
+      font-weight: 600;
+      transition: background 0.3s;
+    }
+    .btn:hover {
+      background: #0f8d00;
+    }
+
+    .hero-btn{
+      font-weight: 600;
+    }
+    /* Services Heading */
+#services h2 {
+  font-size: 3rem;        /* was approx. 2rem—+1rem to +2rem */
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+/* Service Card Hover */
+#services .card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+#services .card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* Default Card (Dark Mode) */
+/* 🧱 Shared Card Styling (Used in both Services + Projects) */
+.card {
+  background-color: #161616;
+  color: white;
+  padding: 30px;
+  border-radius: 10px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+/* ✅ Hover Effect (Same for Services + Projects) */
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+}
+
+/* ✅ Light Mode: Cards adjust to white with black text */
+body.light .card {
+  background-color: #ffffff;
+  color: #000000;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+
+    .card i {
+      font-size: 2rem;
+      color: var(--green);
+      margin-bottom: 10px;
+    }
+#projects {
+  padding: 80px 20px;
+  text-align: center;
+}
+
+#projects h2 {
+  font-size: 3rem;
+  margin-bottom: 50px;
+}
+
+/* 🔲 Projects Grid Layout */
+#projects .grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* 🖼️ Project Image Styling */
+.project-img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 15px;
+}
+
+/* ===== Responsive Design for Services Section ===== */
+
+/* Large Tablets / Small Laptops */
+@media (max-width: 1024px) {
+  #services {
+    padding: 60px 40px;
+  }
+  #services h2 {
+    font-size: 2.5rem;
+  }
+  .card {
+    padding: 25px;
+  }
+}
+
+/* Tablets */
+@media (max-width: 768px) {
+  #services {
+    padding: 50px 30px;
+  }
+
+  #services h2 {
+    font-size: 2.2rem;
+    margin-bottom: 40px;
+  }
+
+  .grid {
+    gap: 25px;
+  }
+
+  .card {
+    padding: 22px;
+    font-size: 0.95rem;
+  }
+
+  .card i {
+    font-size: 1.8rem;
+  }
+}
+
+/* Mobile Devices */
+@media (max-width: 600px) {
+  #services {
+    padding: 40px 20px;
+  }
+
+  #services h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .card {
+    padding: 20px;
+    border-radius: 8px;
+  }
+
+  .card i {
+    font-size: 1.6rem;
+    margin-bottom: 8px;
+  }
+}
+
+/* Extra Small Screens */
+@media (max-width: 400px) {
+  #services {
+    padding: 30px 15px;
+  }
+
+  #services h2 {
+    font-size: 1.8rem;
+  }
+
+  .card {
+    font-size: 0.9rem;
+    padding: 18px;
+  }
+
+  .card i {
+    font-size: 1.4rem;
+  }
+}
+
+
+
+/* About Section Base */
+#about {
+  padding: 80px 20px;
+  text-align: center;
+}
+
+#about h2 {
+  font-size: 3rem;
+  margin-bottom: 50px;
+}
+
+/* About container layout */
+.about-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+/* Left Column: About Text */
+.about-text {
+  flex: 1 1 48%;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--white);
+}
+
+/* Right Column: Highlight Boxes */
+.about-highlights {
+  flex: 1 1 48%;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 25px;
+}
+
+/* Highlight Card Style */
+.highlight-box {
+  background-color: #161616;
+  color: white;
+  padding: 25px;
+  border-radius: 10px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+.highlight-box:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+}
+
+/* Icons inside Highlight Box */
+.highlight-box i {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: var(--green); /* #14A800 */
+}
+
+/* Light Mode Support */
+body.light .highlight-box {
+  background-color: #ffffff;
+  color: #000000;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+
+body.light .about-text {
+  color: #000000;
+}
+
+
+ #contact {
+  padding: 100px 20px;
+  background-color: var(--bg, #0e0e0e);
+  color: var(--text, #ffffff);
+  text-align: center;
+}
+
+#contact h2 {
+  font-size: 3rem;
+  margin-bottom: 50px;
+}
+
+.contact-form {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  background: transparent;
+  border: 2px solid #14A800;
+  padding: 15px 20px;
+  color: white;
+  font-size: 1rem;
+  font-family: 'Inter', sans-serif;
+  border-radius: 10px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: #cccccc;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #1dbf73;
+}
+
+.contact-form button {
+  background: transparent;
+  border: 2px solid #14A800;
+  color: white;
+  padding: 12px 25px;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 40px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.contact-form button:hover {
+  background-color: #14A800;
+  color: black;
+}
+
+/* Light Mode - Contact Form Text Color Fix */
+body.light #contact label,
+body.light #contact input,
+body.light #contact textarea {
+  color: #000000;
+}
+
+/* Light Mode - Contact Section Button Text Color */
+body.light #contact button {
+  color: #000000;
+}
+
+
+
+footer {
+  background-color: #0b0b0b;
+  padding: 60px 20px 30px;
+  text-align: center;
+  color: #fff;
+}
+
+.footer-icons {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  margin-bottom: 20px;
+}
+
+.footer-icons a {
+  color: #fff;
+  font-size: 28px; /* ⬅️ Bigger icons */
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.footer-icons a:hover {
+  color: #14A800;
+  transform: scale(1.2); /* ⬅️ Sexy hover lift */
+}
+
+footer p {
+  font-size: 0.95rem;
+  color: #aaa;
+  margin-top: 10px;
+}
+
+/* Light Mode - Footer Background & Text */
+body.light footer {
+  background-color: #f4f4f4;
+  color: #000000;
+}
+
+/* Light Mode - Footer Links & Icons */
+body.light footer a,
+body.light footer i {
+  color: #000000;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* =======================
+   📱 RESPONSIVE DESIGN
+========================== */
+
+/* Large Tablets / Small Laptops */
+@media (max-width: 1024px) {
+  #about {
+    padding: 70px 40px;
+  }
+
+  #about h2 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+  }
+
+  .about-container {
+    gap: 30px;
+  }
+
+  .about-text {
+    font-size: 1rem;
+  }
+
+  #contact h2 {
+    font-size: 2.5rem;
+  }
+
+  .contact-form {
+    max-width: 500px;
+  }
+}
+
+/* Tablets */
+@media (max-width: 768px) {
+  #about {
+    padding: 60px 30px;
+  }
+
+  #about h2 {
+    font-size: 2.2rem;
+  }
+
+  .about-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .about-text, .about-highlights {
+    flex: 1 1 100%;
+    text-align: center;
+  }
+
+  .highlight-box {
+    padding: 20px;
+    border-radius: 10px;
+  }
+
+  #contact {
+    padding: 80px 30px;
+  }
+
+  #contact h2 {
+    font-size: 2.2rem;
+    margin-bottom: 40px;
+  }
+
+  .contact-form {
+    width: 100%;
+    max-width: 450px;
+  }
+
+  footer {
+    padding: 50px 20px 25px;
+  }
+
+  .footer-icons a {
+    font-size: 26px;
+  }
+}
+
+/* Mobile Devices */
+@media (max-width: 600px) {
+  #about {
+    padding: 50px 20px;
+  }
+
+  #about h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+  }
+
+  #projects h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+  }
+
+  .about-text {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .about-highlights {
+    gap: 20px;
+  }
+
+  .highlight-box {
+    padding: 18px;
+  }
+
+  #contact {
+    padding: 60px 20px;
+  }
+
+  #contact h2 {
+    font-size: 2rem;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    font-size: 0.95rem;
+    padding: 12px 15px;
+  }
+
+  .contact-form button {
+    padding: 10px 22px;
+    font-size: 0.95rem;
+  }
+
+  footer {
+    padding: 40px 15px 20px;
+  }
+
+  .footer-icons {
+    gap: 18px;
+  }
+
+  .footer-icons a {
+    font-size: 24px;
+  }
+
+  footer p {
+    font-size: 0.9rem;
+  }
+}
+
+/* Extra Small Screens */
+@media (max-width: 400px) {
+  #about h2,
+  #contact h2 {
+    font-size: 1.8rem;
+  }
+
+  .about-text {
+    font-size: 0.9rem;
+  }
+
+  .highlight-box i {
+    font-size: 1.5rem;
+  }
+
+  .contact-form button {
+    font-size: 0.9rem;
+    padding: 10px 20px;
+  }
+
+  footer {
+    padding: 35px 12px 18px;
+  }
+
+  footer p {
+    font-size: 0.85rem;
+  }
+}
+
+
+  
+
+/* Light Mode Fix */
+body.light .message.alex {
+  color: #000000;
+}
+
+
+/* Theme switch support */
+:root {
+  --bg: #0e0e0e;
+  --text: #ffffff;
+}
+
+body.light {
+  --bg: #ffffff;
+  --text: #000000;
+}
+
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    @media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2rem; /* smaller heading */
+  }
+  .hero p {
+    font-size: 1rem;
+  }
+  .hero-btn {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+}
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 1.5rem;
+  }
+  .hero p {
+    font-size: 0.9rem;
+  }
+  .hero-btn {
+    width: 100%; /* full width button */
+  }
+}
+
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    gap: 10px;
+  }
+  nav a {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr; /* single column on mobile */
+    gap: 20px;
+  }
+}
+
+/* ===== BURGER MENU + RESPONSIVENESS FIX ===== */
+.burger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 28px;
+  height: 20px;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.burger span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background-color: var(--green);
+  border-radius: 3px;
+  transition: all 0.4s ease;
+}
+
+/* Burger turns into X */
+.burger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 6px);
+}
+.burger.active span:nth-child(2) {
+  opacity: 0;
+}
+.burger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -6px);
+}
+
+/* Mobile nav hidden by default */
+.nav-links {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+
+.mobile-theme-toggle {
+  display: none;
+}
+
+/* ===== BELOW 650px ===== */
+@media (max-width: 650px) {
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 70%;
+    background: var(--section-bg);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    transform: translateX(100%);
+    transition: transform 0.4s ease;
+    box-shadow: -5px 0 20px rgba(0,0,0,0.2);
+    z-index: 1000;
+  }
+
+  .nav-links.active {
+    transform: translateX(0);
+  }
+
+  .desktop-toggle {
+    display: none; /* hide main toggle */
+  }
+
+  .mobile-theme-toggle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+
+  .burger {
+    display: flex;
+    position: absolute;
+    right: 20px;
+    top: 25px;
+  }
+
+  header {
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo {
+    z-index: 1002;
+  }
+}
+
+/* ===== SMOOTH SWITCH BETWEEN DESKTOP AND MOBILE NAV ===== */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none; /* hide full nav before mobile version activates */
+  }
+
+  .burger {
+    display: flex;
+  }
+
+  .nav-links.active {
+    display: flex; /* show when toggled */
+  }
+}
+
+/* Override mobile menu from 650px downward */
+@media (max-width: 650px) {
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 70%;
+    background: var(--section-bg);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    transform: translateX(100%);
+    transition: transform 0.4s ease;
+    box-shadow: -5px 0 20px rgba(0,0,0,0.2);
+    z-index: 1000;
+  }
+
+  .nav-links.active {
+    transform: translateX(0);
+  }
+
+  .burger {
+    position: absolute;
+    right: 20px;
+    top: 25px;
+  }
+}
+
+
+  </style>
+</head>
+
+<body class="dark">
+<header>
+  <div class="logo">Build.Site</div>
+
+  <div class="nav-wrapper">
+    <nav class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#services">Services</a>
+      <a href="#projects">Projects</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+      <div class="mobile-theme-toggle">
+        <i class="fas fa-adjust"></i>
+        <div class="theme-label">Light / Dark</div>
+      </div>
+    </nav>
+
+    <div class="theme-toggle desktop-toggle">
+      <i class="fas fa-adjust"></i>
+      <div class="theme-label">Light / Dark</div>
+    </div>
+
+    <div class="burger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+</header>
+
+
+  <!-- Hero -->
+<section id="home" class="hero">
+  <div class="hero-content">
+    <h1>Let’s build your dream website or game with <span style="color: #14A800;">Build.Site</span></h1>
+    <p>
+      Build.Site delivers stunning, high-performance websites and interactive web games tailored for startups, creators, and agencies.
+      Our team blends creativity, code, and care to turn your digital vision into a living experience — fast, modern, and reliable.
+    </p>
+
+  <button class="hero-btn"
+        onclick="window.location.href='register.html'">
+  START PROJECT <i class="fa-solid fa-arrow-right"></i>
+</button>
+
+  </div>
+</section>
+
+
+  <!-- Services -->
+   <section id="services">
+    <h2>Our Services</h2>
+    <div class="grid">
+      <div class="card"><i class="fas fa-code"></i><h3>Custom Websites</h3><p>Fully responsive, SEO-friendly websites crafted with modern tools like HTML5, CSS3, JS, and frameworks when needed. Tailored for startups, brands, and enterprises.</p></div>
+      <div class="card"><i class="fas fa-bolt"></i><h3>Landing Pages</h3><p>Lightning-fast landing pages optimized for conversion. We use high-performance techniques to drive action and reduce bounce rate.</p></div>
+      <div class="card"><i class="fas fa-gamepad"></i><h3>Game Development</h3><p>We build browser-based 2D/3D games using WebGL, Unity Web, and Three.js. Ideal for gamified marketing, education, and entertainment.</p></div>
+      <div class="card"><i class="fas fa-user"></i><h3>Portfolio Sites</h3><p>Interactive personal portfolios for creators, professionals, and freelancers. Includes animations, smooth scroll, and CMS if needed.</p></div>
+      <div class="card"><i class="fas fa-shopping-cart"></i><h3>E-commerce</h3><p>Complete online stores with cart, payments, admin panel, product management, and secure integrations (Stripe, PayPal, etc).</p></div>
+      <div class="card"><i class="fas fa-sync"></i><h3>Redesign & Optimization</h3><p>Have a clunky old website? We revamp your UI/UX with better speed, design, and responsiveness for modern users.</p></div>
+      <div class="card"><i class="fas fa-handshake"></i><h3>White-label Development</h3><p>Agency? We work under your name, delivering clean code, fast turnaround, and NDAs signed on request.</p></div>
+    </div>
+ 
+  </div>
+  
+  </section>
+
+  <!-- Projects -->
+ <section id="projects">
+  <h2>Featured Projects</h2>
+  <div class="grid">
+    
+    <!-- Project 1 -->
+    <div class="card">
+      <img src="portfolio.jpeg" alt="Project 1" class="project-img" />
+      <h3>Portfolio Website</h3>
+      <p>Clean and modern developer portfolio with animations and responsive layout.</p>
+    </div>
+
+    <!-- Project 2 -->
+    <div class="card">
+      <img src="e-com.jpeg" alt="Project 2" class="project-img" />
+      <h3>E-commerce Store</h3>
+      <p>Full-featured store with cart, checkout, and dynamic product pages.</p>
+    </div>
+
+    <!-- Project 3 -->
+    <div class="card">
+      <img src="landing.jpeg" alt="Project 3" class="project-img" />
+      <h3>Animated Landing Page</h3>
+      <p>High-converting landing page with scroll animations and CTA sections.</p>
+    </div>
+
+    <!-- Project 4 -->
+    <div class="card">
+      <img src="realstate.jpeg" alt="Project 4" class="project-img" />
+      <h3>Real Estate Platform</h3>
+      <p>Custom-built real estate listing platform with filters, maps, and CMS.</p>
+    </div>
+
+    <!-- Project 5 -->
+    <div class="card">
+      <img src="game.jpeg" alt="Project 5" class="project-img" />
+      <h3>3D Web Game</h3>
+      <p>Browser-based 3D web game built using Three.js and WebGL.</p>
+    </div>
+
+    <!-- Project 6 -->
+    <div class="card">
+      <img src="agency.jpeg" alt="Project 6" class="project-img" />
+      <h3>Agency Website</h3>
+      <p>Corporate website with testimonials, pricing, and contact forms.</p>
+    </div>
+
+  </div>
+</section>
+
+
+  <!-- About -->
+ <section id="about">
+  <h2>Who We Are</h2>
+
+  <div class="about-container">
+    <div class="about-text">
+      <p>
+        Build.Site is not just a web agency — it's a team of creators, engineers, and designers dedicated to building meaningful digital experiences. 
+        With a sharp focus on clean code, responsive design, and creative strategy, we develop websites and games that perform beautifully across all devices.
+      </p>
+
+      <p>
+        Our agency was founded on three simple principles: deliver fast, build with quality, and always keep the client experience first. 
+        Whether you're a solo founder or a growing brand, we bring the same energy and expertise to every project we touch.
+      </p>
+
+      <p>
+        Every project starts with our smart assistant “Alex”, who listens, guides, and manages your journey from idea to launch. 
+        You’ll never feel lost or unheard — because we believe in communication, transparency, and results that exceed expectations.
+      </p>
+    </div>
+
+    <div class="about-highlights">
+      <div class="highlight-box">
+        <i class="fas fa-bolt"></i>
+        <h3>Speed & Performance</h3>
+        <p>We build blazing-fast websites optimized for speed and SEO.</p>
+      </div>
+
+      <div class="highlight-box">
+        <i class="fas fa-cubes"></i>
+        <h3>Custom & Scalable</h3>
+        <p>Every project is crafted uniquely — no templates, no shortcuts.</p>
+      </div>
+
+      <div class="highlight-box">
+        <i class="fas fa-users-cog"></i>
+        <h3>Dedicated Support</h3>
+        <p>From planning to delivery, we’re here for you — every step of the way.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Contact -->
+<section id="contact">
+  <h2>Contact Us</h2>
+
+  <form id="contactForm" class="contact-form">
+    <input type="text" name="name" placeholder="Your Name" required />
+    <input type="email" name="email" placeholder="Your Email" required />
+    <textarea name="message" placeholder="Your Message" rows="6" required></textarea>
+    <button type="submit">Send Message</button>
+  </form>
+</section>
+
+
+  <!-- Footer -->
+<footer>
+  <div class="footer-icons">
+    <a href="https://www.linkedin.com/in/build-site-304536337
+" target="_blank"><i class="fab fa-linkedin"></i></a>
+    <a href="https://instagram.com/_build.site
+" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.tiktok.com/@Build.Site
+" target="_blank"><i class="fab fa-tiktok"></i></a>
+    <a href="https://wa.me/923282754995?text=Hi%2C%20I%27m%20interested%20in%20a%20website
+" target="_blank"><i class="fab fa-whatsapp"></i></a>
+  </div>
+  <p>© 2025 Build.Site — All rights reserved</p>
+</footer>
+
+
+  <!-- JavaScript -->
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const toggleBtn = document.querySelector(".theme-toggle");
+
+    // Load saved theme
+    const savedTheme = localStorage.getItem("theme") || "light";
+    document.body.classList.remove("light", "dark");
+    document.body.classList.add(savedTheme);
+
+    // Toggle on click
+    if (toggleBtn) {
+      toggleBtn.addEventListener("click", () => {
+        const isDark = document.body.classList.contains("dark");
+        document.body.classList.toggle("dark", !isDark);
+        document.body.classList.toggle("light", isDark);
+
+        const newTheme = isDark ? "light" : "dark";
+        localStorage.setItem("theme", newTheme);
+      });
+    }
+  });
+</script>
+
+<script>
+document.getElementById("contactForm").addEventListener("submit", async function(e) {
+  e.preventDefault();
+
+  const form = e.target;
+  const formData = {
+    name: form.name.value,
+    email: form.email.value,
+    message: form.message.value
+  };
+
+  try {
+    const response = await fetch("https://shakaop11.app.n8n.cloud/webhook/Contact-form", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(formData)
+    });
+
+    if (response.ok) {
+      alert("✅ Your message has been sent successfully!");
+      form.reset();
+    } else {
+      alert("❌ There was an issue sending your message. Please try again.");
+    }
+  } catch (error) {
+    console.error("Error:", error);
+    alert("⚠️ Network error — please check your connection.");
+  }
+});
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const burger = document.querySelector(".burger");
+  const nav = document.querySelector(".nav-links");
+  const mobileToggle = document.querySelector(".mobile-theme-toggle");
+
+  // Burger open/close
+  burger.addEventListener("click", () => {
+    burger.classList.toggle("active");
+    nav.classList.toggle("active");
+  });
+
+  // Mobile theme toggle (reuses your existing logic)
+  if (mobileToggle) {
+    mobileToggle.addEventListener("click", () => {
+      document.querySelector(".theme-toggle").click();
+    });
+  }
+});
+</script>
+
+
+</body>
+</html>
+

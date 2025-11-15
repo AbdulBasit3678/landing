@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <title>Thank You</title>
+
+  <style>
+    :root {
+      --green: #14A800;
+      --radius: 40px;
+      --font: 'Inter', sans-serif;
+    }
+
+    /* Default light theme */
+    body.light {
+      --bg: #ffffff;
+      --text: #111111;
+      --card-bg: #f9f9f9;
+    }
+
+    /* Dark theme */
+    body.dark {
+      --bg: #121212;
+      --text: #ffffff;
+      --card-bg: #1e1e1e;
+    }
+
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font);
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .thankyou-container {
+      text-align: center;
+      background: var(--card-bg);
+      padding: 3rem 2rem;
+      border-radius: 1.5rem;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+      max-width: 400px;
+      width: 90%;
+      transition: 0.3s ease;
+      animation: fadeIn 0.6s ease;
+    }
+
+.done-icon {
+  font-size: 5rem;
+  color: #14A800;
+  margin-bottom: 10px;
+}
+.done-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text);
+  font-style: italic;
+}
+
+
+   .thankyou-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  margin-bottom: 2rem;
+  color: var(--text);
+  font-style: italic;
+}
+
+    .hero-btn {
+      background: transparent;
+      color: #ffffff;
+      border: 2px solid var(--green);
+      padding: 12px 28px;
+      font-size: 1rem;
+      font-weight: 500;
+      border-radius: var(--radius);
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    .hero-btn:hover {
+      background: var(--green);
+      color: #000000;
+    }
+
+    body.light .hero-btn {
+      color: black;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(15px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="thankyou-container">
+    <i class="fas fa-check-circle done-icon"></i>
+
+
+    <div class="thankyou-text">Thanks for submitting the form! Our team will contact you soon.</div>
+    <button class="hero-btn" onclick="window.location.href='index.html'">OK</button>
+  </div>
+
+  <script>
+    // Load the user's selected theme (from main page)
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    document.body.classList.add(savedTheme);
+  </script>
+</body>
+</html>
